@@ -8,6 +8,7 @@ import redis.clients.jedis.Jedis;
 @RestController
 public class HelloController {
 
+
     @GetMapping("/")
     public String hello() {
 
@@ -24,6 +25,21 @@ public class HelloController {
                 return "Hello "+ name + "a visité "+ nbredeVisite;
             }
                 catch (Exception e) {
+
+    /**
+     * @return A greeting message that includes the value of the "APP_USER" environment variable, or "World" if it is not set.
+     */
+    @GetMapping("/")
+    public String hello() {
+        try {
+            String appUser = System.getenv("APP_USER");
+            String name = (appUser == null || appUser.isEmpty()) ? "World" : appUser;
+
+            String base = String.format("Hello %s!", name);
+            return base;
+
+        } catch (Exception e) {
+>>>>>>> origin/Username-feature
             return "Error: " + e.getMessage();
         }
     }
