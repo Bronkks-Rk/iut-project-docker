@@ -20,6 +20,8 @@ public class HelloController {
                 // Incrémentation du nombre du compteur "hits" dans le Redis
                 Long count = jedis.incr("hits");
                 String nbredeVisite = "A été visité " + count + " fois"  ;
+
+                return "Hello "+ name + "a visité "+ nbreVisite;
             }
                 catch (Exception e) {
             return "Error: " + e.getMessage();
