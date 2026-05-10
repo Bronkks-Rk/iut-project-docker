@@ -39,7 +39,7 @@ public class HelloController {
             return base;
 
         } catch (Exception e) {
->>>>>>> origin/Username-feature
+
             return "Error: " + e.getMessage();
         }
     }
