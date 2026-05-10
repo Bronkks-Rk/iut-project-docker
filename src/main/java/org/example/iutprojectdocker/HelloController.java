@@ -21,7 +21,7 @@ public class HelloController {
                 Long count = jedis.incr("hits");
                 String nbredeVisite = "A été visité " + count + " fois"  ;
 
-                return "Hello "+ name + "a visité "+ nbreVisite;
+                return "Hello "+ name + "a visité "+ nbredeVisite;
             }
                 catch (Exception e) {
             return "Error: " + e.getMessage();
