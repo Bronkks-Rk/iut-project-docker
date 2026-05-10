@@ -13,15 +13,15 @@ public class HelloController {
 
         //Récupération du nom
         String appUser = System.getenv("APP_USER");
-        
         String name = (appUser == null || appUser.isEmpty()) ? "World" : appUser;
 
-
         
-        try {
-            return "Hello World";
-            
-        } catch (Exception e) {
+            try (Jedis jedis = new Jedis("redis", 6379)) {
+                // Incrémentation du nombre du compteur "hits" dans le Redis
+                Long count = jedis.incr("hits");
+                String nbredeVisite = "A été visité " + count + " fois"  ;
+            }
+                catch (Exception e) {
             return "Error: " + e.getMessage();
         }
     }
