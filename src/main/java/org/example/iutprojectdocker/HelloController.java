@@ -8,9 +8,8 @@ import redis.clients.jedis.Jedis;
 @RestController
 public class HelloController {
 
-
-    @GetMapping("/")
-    public String hello() {
+  @GetMapping("/")
+  public String hello() {
 
         //Récupération du nom
         String appUser = System.getenv("APP_USER");
@@ -25,7 +24,8 @@ public class HelloController {
                 return "Hello "+ name + "a visité "+ nbredeVisite;
             }
                 catch (Exception e) {
-
+                
+                return "Error";
         }
     }
 }
